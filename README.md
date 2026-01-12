@@ -32,11 +32,3 @@ Como o projeto utiliza PHP, você precisará de um servidor local:
 
 ---
 Desenvolvido por Wesley Lemos
-
----
-## 📬 Contato
-
-Gostou do projeto? Entre em contato comigo:
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/wesley-lemos-profissional/)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/alswes/)
