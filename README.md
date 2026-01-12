@@ -35,16 +35,6 @@ Desenvolvido por Wesley Lemos
 
 ---
 
-## 📸 Demonstração
-
-### Formulário Inicial
-![Interface do Formulário](img/screenshot-form.png)
-
-### Resultado após o envio
-![Página de Boas-vindas](img/screenshot-welcome.png)
-
----
-
 ---
 ## 📬 Contato
 
