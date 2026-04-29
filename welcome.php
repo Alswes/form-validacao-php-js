@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo '<div class="alert alert-error">⚠️ Acesso inválido. Por favor, envie o formulário primeiro.</div>';
 }
 ?>
-    <a href="index.php.html">← Voltar ao formulário</a>
+    <a href="index.html">← Voltar ao formulário</a>
 </div>
 </body>
 </html>
