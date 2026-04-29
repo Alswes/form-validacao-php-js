@@ -3,94 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário Estilizado</title>
-    
+    <title>Formulário de Cadastro</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-       
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #eef0f5;
+            --card: #ffffff;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --error: #ef4444;
+            --error-bg: #fef2f2;
+            --radius: 10px;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+            padding: 1rem;
         }
 
-        form {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .card {
+            background: var(--card);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
+            animation: fadeUp 0.4s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            font-size: 0.875rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        .field {
+            margin-bottom: 1.25rem;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
-            color: #333;
-            font-weight: bold;
+            margin-bottom: 6px;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="email"] {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box; 
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: #fafafa;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        input.error {
+            border-color: var(--error);
+            background-color: var(--error-bg);
+        }
+
+        .error-msg {
+            display: none;
+            font-size: 0.78rem;
+            color: var(--error);
+            margin-top: 5px;
+        }
+
+        input.error + .error-msg {
+            display: block;
         }
 
         input[type="submit"] {
             width: 100%;
-            background-color: #007bff;
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 4px;
+            padding: 13px;
+            border-radius: var(--radius);
             cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: background 0.25s, transform 0.1s;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: var(--primary-hover);
         }
 
-        .error {
-            border-color: #ff4d4d !important;
-            background-color: #fff2f2;
+        input[type="submit"]:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 <body>
+    <div class="card">
+        <h1>Cadastro</h1>
+        <p class="subtitle">Preencha seus dados para continuar.</p>
 
-    <form id="meuFormulario" action="welcome.php" method="POST" onsubmit="return validarFormulario()">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" placeholder="Digite seu nome">
+        <form id="meuFormulario" action="welcome.php" method="POST" onsubmit="return validarFormulario()">
+            <div class="field">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" placeholder="Digite seu nome completo">
+                <span class="error-msg" id="erro-nome">Por favor, preencha o campo Nome.</span>
+            </div>
 
-        <label for="email">E-mail:</label>
-        <input type="text" id="email" name="email" placeholder="exemplo@email.com">
+            <div class="field">
+                <label for="email">E-mail</label>
+                <!-- FIX: type="email" para validação nativa e teclado correto no mobile -->
+                <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+                <span class="error-msg" id="erro-email">Por favor, insira um e-mail válido.</span>
+            </div>
 
-        <input type="submit" value="Enviar Dados">
-    </form>
+            <input type="submit" value="Enviar Dados">
+        </form>
+    </div>
 
     <script>
-      
         function validarFormulario() {
-            const nome = document.getElementById('name');
+            const nome  = document.getElementById('name');
             const email = document.getElementById('email');
-            let status = true;
+            let valido  = true;
 
-            
+            // Limpa estados anteriores
             nome.classList.remove('error');
             email.classList.remove('error');
 
+            // Validação do nome
             if (nome.value.trim() === "") {
-                alert("Por favor, preencha o campo Nome.");
                 nome.classList.add('error');
-                status = false;
+                valido = false;
             }
 
-            if (email.
+            // FIX: validação de formato de e-mail com regex
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value.trim() === "" || !regexEmail.test(email.value.trim())) {
+                email.classList.add('error');
+                valido = false;
+            }
+
+            return valido;
+        }
+    </script>
+</body>
+</html>
