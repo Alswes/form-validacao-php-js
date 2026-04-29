@@ -1,67 +1,42 @@
 # 📝 Formulário de Contato Dinâmico com PHP
 
-Este projeto é um sistema de formulário simples, mas completo, que demonstra a integração entre Front-end e Back-end. Ele inclui estilização moderna, validação no lado do cliente e processamento seguro no servidor.
-
-## 🚀 Funcionalidades
-
-- **Design Responsivo:** Interface limpa e centralizada com CSS.
-- **Validação com JavaScript:** Verifica se os campos estão preenchidos e se o e-mail é válido antes do envio.
-- **Back-end Seguro:** Processamento em PHP utilizando `htmlspecialchars` para evitar ataques de XSS (Cross-Site Scripting).
-- **Feedback Visual:** Indicações de erro em vermelho nos campos inválidos.
-
-## 🛠️ Tecnologias Utilizadas
-
-- **HTML5:** Estrutura do formulário.
-- **CSS3:** Estilização e layout Flexbox.
-- **JavaScript (ES6):** Lógica de validação de dados.
-- **PHP:** Tratamento de requisições POST e segurança de dados.
-
-## 📂 Estrutura do Projeto
-
-- `index.php`: Contém o formulário, o CSS e o script de validação.
-- `welcome.php`: Recebe os dados e exibe a mensagem de boas-vindas com segurança.
-
-## ⚙️ Como executar o projeto
-
-Como o projeto utiliza PHP, você precisará de um servidor local:
-
-1. Baixe e instale o [XAMPP](https://www.apachefriends.org/).
-2. Coloque os arquivos do projeto na pasta `htdocs`.
-3. Inicie o módulo Apache no painel do XAMPP.
-4. Acesse no navegador: `http://localhost/nome-da-sua-pasta/index.php`.
-
----
-
-Desenvolvido por Wesley Lemos
-
----
-# 📝 Formulário de Contato Dinâmico
-
-Este projeto demonstra a integração entre Front-end e Back-end, com foco em segurança e experiência do usuário.
-
-## 📸 Demonstração
-
-Aqui você pode ver o formulário estilizado e o processamento dos dados:
-
-![Interface do Formulário](img/screenshot-form.jpg)
-*Legenda: Formulário com CSS e validação JS.*
-
-![Página de Boas-vindas](img/screenshot-welcome.jpg)
-*Legenda: Página welcome.php processando os dados com segurança.*
-
-## 🛠️ Tecnologias
-
-- **Front-end:** HTML5, CSS3, JavaScript.
-- **Back-end:** PHP (utilizando `htmlspecialchars` para proteção XSS).
-
-## ⚙️ Como executar
-1. Baixe o projeto e coloque na pasta `htdocs` do seu XAMPP.
-2. Inicie o Apache.
-3. Acesse `http://localhost/seu-projeto/index.php`.
-
----
-
-## 📬 Contato
+Projeto full-stack simples e completo, demonstrando integração entre
+Front-end e Back-end com foco em segurança e experiência do usuário.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/wesley-lemos-profissional)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/alswes/)
+
+---
+
+## 📸 Demonstração
+
+![Interface do Formulário](img/screenshot-form.jpg)
+*Formulário com CSS moderno e validação em tempo real.*
+
+![Página de Boas-vindas](img/screenshot-welcome.jpg)
+*Página welcome.php processando e exibindo os dados com segurança.*
+
+---
+
+## 🚀 Funcionalidades
+
+- **Design responsivo:** Interface centralizada com Flexbox e animação de entrada.
+- **Validação no cliente:** JavaScript verifica nome vazio e formato de e-mail antes do envio.
+- **Back-end seguro:** PHP com `htmlspecialchars`, `trim` e `filter_var` para proteção contra XSS e dados inválidos.
+- **Feedback visual:** Mensagens de erro inline em cada campo, sem `alert()`.
+- **Página de resposta estilizada:** Resultado exibido com o mesmo visual do formulário.
+
+---
+
+## 🛠️ Tecnologias
+
+| Camada     | Tecnologia | Uso |
+|------------|------------|-----|
+| Front-end  | HTML5      | Estrutura semântica do formulário |
+| Front-end  | CSS3       | Estilização, Flexbox e variáveis CSS |
+| Front-end  | JavaScript (ES6) | Validação de campos antes do envio |
+| Back-end   | PHP        | Processamento POST e sanitização de dados |
+
+---
+
+## 📂 Estrutura do Projeto
