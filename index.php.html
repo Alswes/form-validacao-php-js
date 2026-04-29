@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
         }
-
+ 
         :root {
             --bg: #eef0f5;
             --card: #ffffff;
@@ -24,7 +24,7 @@
             --error-bg: #fef2f2;
             --radius: 10px;
         }
-
+ 
         body {
             font-family: 'DM Sans', sans-serif;
             background-color: var(--bg);
@@ -34,7 +34,7 @@
             min-height: 100vh;
             padding: 1rem;
         }
-
+ 
         .card {
             background: var(--card);
             padding: 2.5rem 2rem;
@@ -44,29 +44,29 @@
             max-width: 420px;
             animation: fadeUp 0.4s ease;
         }
-
+ 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(16px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-
+ 
         h1 {
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--text);
             margin-bottom: 0.25rem;
         }
-
+ 
         .subtitle {
             font-size: 0.875rem;
             color: var(--muted);
             margin-bottom: 2rem;
         }
-
+ 
         .field {
             margin-bottom: 1.25rem;
         }
-
+ 
         label {
             display: block;
             margin-bottom: 6px;
@@ -74,7 +74,7 @@
             font-weight: 500;
             font-size: 0.9rem;
         }
-
+ 
         input[type="text"],
         input[type="email"] {
             width: 100%;
@@ -88,30 +88,30 @@
             transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
             outline: none;
         }
-
+ 
         input[type="text"]:focus,
         input[type="email"]:focus {
             border-color: var(--primary);
             background: #fff;
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
         }
-
+ 
         input.error {
             border-color: var(--error);
             background-color: var(--error-bg);
         }
-
+ 
         .error-msg {
             display: none;
             font-size: 0.78rem;
             color: var(--error);
             margin-top: 5px;
         }
-
+ 
         input.error + .error-msg {
             display: block;
         }
-
+ 
         input[type="submit"] {
             width: 100%;
             background-color: var(--primary);
@@ -126,11 +126,11 @@
             margin-top: 0.5rem;
             transition: background 0.25s, transform 0.1s;
         }
-
+ 
         input[type="submit"]:hover {
             background-color: var(--primary-hover);
         }
-
+ 
         input[type="submit"]:active {
             transform: scale(0.98);
         }
@@ -140,48 +140,48 @@
     <div class="card">
         <h1>Cadastro</h1>
         <p class="subtitle">Preencha seus dados para continuar.</p>
-
+ 
         <form id="meuFormulario" action="welcome.php" method="POST" onsubmit="return validarFormulario()">
             <div class="field">
                 <label for="name">Nome</label>
                 <input type="text" id="name" name="name" placeholder="Digite seu nome completo">
                 <span class="error-msg" id="erro-nome">Por favor, preencha o campo Nome.</span>
             </div>
-
+ 
             <div class="field">
                 <label for="email">E-mail</label>
                 <!-- FIX: type="email" para validação nativa e teclado correto no mobile -->
                 <input type="email" id="email" name="email" placeholder="exemplo@email.com">
                 <span class="error-msg" id="erro-email">Por favor, insira um e-mail válido.</span>
             </div>
-
+ 
             <input type="submit" value="Enviar Dados">
         </form>
     </div>
-
+ 
     <script>
         function validarFormulario() {
             const nome  = document.getElementById('name');
             const email = document.getElementById('email');
             let valido  = true;
-
+ 
             // Limpa estados anteriores
             nome.classList.remove('error');
             email.classList.remove('error');
-
+ 
             // Validação do nome
             if (nome.value.trim() === "") {
                 nome.classList.add('error');
                 valido = false;
             }
-
+ 
             // FIX: validação de formato de e-mail com regex
             const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (email.value.trim() === "" || !regexEmail.test(email.value.trim())) {
                 email.classList.add('error');
                 valido = false;
             }
-
+ 
             return valido;
         }
     </script>
